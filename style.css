@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Happy+Monkey&family=Roboto&display=swap');
+ 
+
+*,*:before, *:after  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body{
+    background-color: burlywood;
+}
+
+  .all{
+    font-family: fantasy;
+    color: black;
+    padding: 10px;
+    margin-top: 10px;
+    }
+
+  .card-title{
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+.card-body{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    font-family: fantasy;
+    background-color: rgb(255, 251, 252);
+    font-size: 1.3rem;
+}
+
+.adopt{
+    background-color: rgb(214, 142, 142);
+    border: solid black;
+    padding: 5px 3px;
+    font-size: 1rem;
+    width: 7em;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.details{
+    background-color: cadetblue;
+    text-decoration: none;
+    border: solid black;
+    color: aliceblue;
+    padding: 5px;
+    font-size: 1rem;
+    width: 7em;
+    border-radius: 1rem;
+    cursor: pointer;
+   
+}
+
+.edit{
+    background-color: gold;
+    border: solid black;
+    font-size: 1rem;
+    width: 7em;
+    border-radius: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: solid black;
+    color: black;
+    padding: 5px;
+}
+
+.delete{
+    background-color: red;
+    border: solid black;
+    font-size: 1rem;
+    width: 7em;
+    border-radius: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: solid black;
+    color: aliceblue;
+    padding: 5px;
+}
+
+.login{
+
+    background-color: rgb(133, 133, 160);
+    border: solid black;
+    padding: 5px 3px;
+    font-size: 1rem;
+    color: aliceblue;
+    width: 7em;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.register{
+  background-color: rgb(61, 61, 67);
+  border: solid black;
+  color: aliceblue;
+  padding: 5px 3px;
+  font-size: 1rem;
+  width: 7em;
+  border-radius: 1rem;
+  cursor: pointer;
+
+}
+

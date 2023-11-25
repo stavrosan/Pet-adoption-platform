@@ -1,0 +1,129 @@
+<?php
+
+
+session_start();
+
+if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){
+    header("Location: /home.php");
+}
+
+if(isset($_SESSION["user"])){//if it is a user it redirects to main page
+    header("Location: /home.php");
+}
+
+
+require_once '../components/connect.php';
+require_once '../components/imageUpload.php'; //we can update picture and send it to assets folder
+
+
+//Select id to update specific item
+    $sql = "SELECT * FROM `animals` WHERE `id` = $_GET[id]";
+    $result = mysqli_query($connect,$sql);
+    $row = mysqli_fetch_assoc($result);
+
+//Select which cols to update in the form in HTML
+if(isset($_POST["update"])){
+    $name = $_POST["name"];
+    $picture = imageUpload($_FILES["picture"]);
+    $breed = $_POST["breed"];
+    $location = $_POST["location"];
+    $description = $_POST["description"];
+    $size = $_POST["size"];
+    $age = $_POST["age"];
+    $vaccinated = $_POST['vaccinated'] !=0 ? $_POST['vaccinated'] : 1;
+    
+    
+    if($_FILES["picture"]["error"] == 0){
+        /* checking if the picture name of the animal is not animal.jpg to remove it from assets folder */
+        if($row["picture"] != "animal.jpg"){
+            unlink("../assets/$row[picture]");
+        }
+        $sql = "UPDATE `animals` SET `name`='$name',`picture`='$picture[0]',`breed`='$breed', `location`= '$location', `description`= '$description', `size`= '$size', `age`= '$age', `vaccinated`= '$vaccinated' WHERE `id` = $_GET[id] ";
+    }
+    else {
+        $sql = "UPDATE `animals` SET `name`='$name', `breed`='$breed', `location`= '$location', `description`= '$description', `size`= '$size', `age`= '$age', `vaccinated`= '$vaccinated' WHERE `id` = $_GET[id] ";
+    }
+    
+    
+    if(mysqli_query($connect,$sql)){
+        echo "
+        <div class='alert alert-success' role='alert'>
+            Animal info updated!
+        </div>
+        ";
+    
+        }
+        else {
+        echo "   
+        <div class='alert alert-danger' role='alert'>
+             Error!
+        </div>
+       " ;
+    }
+    }
+    
+    mysqli_close($connect);
+
+
+
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>be20_cr5_StavrosAnagnostakis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<?php require_once '../components/navbar.php';?>
+
+<div class="container">
+<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4" style="width:60%">
+           <div class="mb-3 mt-3">
+               <label for="name" class= "form-label"></label>
+               <input  type="text" class="form-control" name="name" placeholder="Change name" value="<?= $row["name"] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="picture" class="form-label"></label>
+                <input type ="file" class="form-control" name="picture" placeholder="Change photo" value="<?= $row["picture"] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="breed" class="form-label"></label>
+                <input type="text" class="form-control" name="breed" placeholder="Change breed"  value="<?= $row["breed"] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label"></label>
+                <input type="text" class="form-control" name="location" placeholder="Change location"  value="<?= $row["location"] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label"></label>
+                <input type="text" class="form-control" name="description" placeholder="Change description"  value="<?= $row["description"] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="size" class="form-label"></label>
+                <input type="text" class="form-control" name="size" placeholder="Change size"  value="<?= $row["size"] ?>">
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label"></label>
+                <input type="number" class="form-control" name="age" placeholder="Change age"  value="<?= $row["age"] ?>">
+            </div>
+            <select name="vaccinated" class="form-control">
+                <option value="0">Choose</option>
+                <option value="1" <?= ($row['vaccinated'] == 1) ? 'selected' : '' ?>>Yes</option>
+                <option value="2" <?= ($row['vaccinated'] == 2) ? 'selected' : '' ?>>No</option>
+            </select>
+            <button name="update" value="Update" type="submit" class="btn btn-warning">Update</button>
+        </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
+</body>
+</html>
