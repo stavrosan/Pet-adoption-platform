@@ -4,14 +4,19 @@
 
 session_start();
 
-    if(isset($_SESSION["user"]) || isset($_SESSION["adm"])){
-        header("Location:/home.php");
-        
-    }
-    
+
+
+if(isset($_SESSION["user"]) || isset($_SESSION["adm"])){
+    header("Location:/home.php");
+    exit;
+}
 
 require_once '../components/connect.php';
 require_once '../components/clean.php';
+
+    
+
+
 
 $emailError = "";
 $passError = "";
@@ -52,8 +57,8 @@ if(isset($_POST["login"])){
             if($row["status"] === "user"){
                 $_SESSION["user"] = $row["id"];
                 echo "
-            <div class='alert alert-success' role='alert'>
-                Welcome user!
+            <div class='alert alert-light' role='alert'>
+                <h3 class='text-success'>Welcome user!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -64,8 +69,8 @@ if(isset($_POST["login"])){
             elseif($row["status"] === "adm"){
                 $_SESSION["adm"] = $row["id"];
                 echo "
-            <div class='alert alert-success' role='alert'>
-                Welcome admin!
+            <div class='alert alert-light' role='alert'>
+                <h3 class='text-success'>Welcome admin!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -96,7 +101,7 @@ if(isset($_POST["login"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>be20_cr5_StavrosAnagnostakis</title>
+    <title>Pet Adoption</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -106,9 +111,9 @@ if(isset($_POST["login"])){
 
 <div class="container">
 <h3 class="all text-center mt-3">Login Page</h3>
-<form action="" method="POST" class="mx-auto" style="width:60%">
+<form action="" method="POST" class="mx-auto form" style="max-width:600px; padding: 15px 35px 45px;">
            <div class="mb-3 mt-3">
-               <label>Email:</label>
+               <label class="form-label">Email:</label>
                <input type="email" class="form-control" name="email" value="<?= $email??"";?>">
                <span><?= $emailError; ?></span>
             </div>

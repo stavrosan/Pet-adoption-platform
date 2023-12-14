@@ -4,6 +4,7 @@ session_start();
 
     if(isset($_SESSION["user"]) || isset($_SESSION["adm"])){
         header("Location: /home.php");
+        exit; //for protection
     }
 
 require_once '../components/connect.php';
@@ -93,7 +94,7 @@ mysqli_close($connect);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>be20_cr5_StavrosAnagnostakis</title>
+    <title>Pet Adoption</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -103,7 +104,7 @@ mysqli_close($connect);
 
 <div class="container">
 <h3 class="all text-center mx-auto mt-3">Register Form</h3>
-<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto form" style="width:60%">
+<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto form" style="max-width:600px; padding: 15px 35px 45px;">
            <div class="mb-3 mt-3">
                <label for="fname" class= "form-label">First Name:</label>
                <input  type="text" class="form-control" name="fname">
@@ -113,7 +114,7 @@ mysqli_close($connect);
                <input type="text" class="form-control" name="lname">
             </div>
             <div class="mb-3 mt-3">
-               <label>email:</label>
+               <label class="form-label">Email:</label>
                <input  type="email" class="form-control" name="email" value="<?= $email??"";?>">
                <span><?= $emailError; ?></span>
             </div>
@@ -134,7 +135,7 @@ mysqli_close($connect);
                 <input type="password" class="form-control"  name="pass">
                 <span><?= $passError; ?></span>
                 </div>
-                <div class="mb-3">
+                <div>
             <input type="submit" value="Register" class="register" name="register">
             </div>
             

@@ -8,7 +8,30 @@
   }
   
 body{
-    background-color: burlywood;
+  min-height: 100vh;
+  position: relative;
+}
+
+.container{
+  min-height: 100vh;
+}
+
+.form{
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(169, 188, 208);
+  filter: drop-shadow(10px 10px 0 black);
+  border: 1px solid black;
+}
+
+.form2{
+  background-color:rgb(216, 219, 210);
+  margin-bottom: 20px;
+
+}
+
+.navbar{
+background-color: rgb(170, 184, 175);
 }
 
   .all{
@@ -17,6 +40,10 @@ body{
     padding: 10px;
     margin-top: 10px;
     }
+
+  .card{
+    border: 1px solid black;
+  }
 
   .card-title{
     background-color: black;
@@ -44,6 +71,12 @@ body{
     cursor: pointer;
 }
 
+.adopt:hover{
+  background-color: white;
+  color: rgb(214, 142, 142);
+  border: solid black;
+}
+
 .details{
     background-color: cadetblue;
     text-decoration: none;
@@ -54,7 +87,12 @@ body{
     width: 7em;
     border-radius: 1rem;
     cursor: pointer;
-   
+   }
+
+.details:hover{
+  background-color: white;
+  color: cadetblue;
+  border: solid black;
 }
 
 .edit{
@@ -70,6 +108,12 @@ body{
     padding: 5px;
 }
 
+.edit:hover{
+  background-color: white;
+  color: gold;
+  border: solid black;
+}
+
 .delete{
     background-color: red;
     border: solid black;
@@ -83,9 +127,15 @@ body{
     padding: 5px;
 }
 
+.delete:hover{
+  background-color: white;
+  color: red;
+  border: solid black;
+}
+
 .login{
 
-    background-color: rgb(133, 133, 160);
+    background-color: rgb(145, 145, 150);
     border: solid black;
     padding: 5px 3px;
     font-size: 1rem;
@@ -105,5 +155,32 @@ body{
   border-radius: 1rem;
   cursor: pointer;
 
+}
+
+footer{
+  width: 100%;
+  padding:10px 10px;
+  background-color: black;
+  margin-top: 10px;
+  bottom: 0;
+  }
+
+footer p {
+  color:aliceblue;
+  text-align:center;
+  margin-top: 4px;
+  padding: 10px 10px;
+}
+
+
+footer a{
+  text-decoration: none;
+  margin-right: 10px;
+  padding-right: 10px;
+  color:aliceblue;
+}
+
+#links{
+ text-align: center;
 }
 
