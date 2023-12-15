@@ -19,6 +19,7 @@ $userImage = $row["picture"];
 echo"
 <nav class='navbar navbar-expand-lg'>
   <div class='container-fluid'>
+  <div class='d-flex align-items-center'>
     <a class='navbar-brand fs-3 fw-bold' href='/home.php'>Adopt a pet</a>
     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
@@ -44,13 +45,14 @@ echo"
     <a class='nav-link' href='/animalCrud/create.php'>Create new entry</a>
     <a class='nav-link' href='/animalCrud/adminpanel.php'>Admin Panel</a>
     <a class='nav-link' href='/animalCrud/adminpanel.php'></a>
+    
     ";
   }
   if(isset($_SESSION["user"])){
   echo "
-  <div class='d-flex justify-content-center'>
-  <a class= 'nav-link' href='/user.php'>User details</a>
-  <a class= 'nav-link' href='#'>Welcome {$userName}</a>
+  <div class='d-flex align-items-center'>
+  <a class= 'nav-link text-white' href='/user.php'>User details</a>
+  <a class= 'nav-link text-white' href='#'>Welcome {$userName}</a>
   <img src='assets/{$userImage}' style='height:30px' alt='user-avatar'>
   </div>
   ";}

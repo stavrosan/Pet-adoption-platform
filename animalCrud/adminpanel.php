@@ -12,7 +12,7 @@ if(isset($_SESSION["user"])){//if it is a user it redirects to main page
 
 require_once '../components/connect.php';
 
-$sql = "SELECT * FROM `animals`";
+$sql = "SELECT animals.*, pet_adoption.id as petId, pet_adoption.fk_userid, pet_adoption.fk_petid FROM `animals` LEFT JOIN `pet_adoption` ON animals.id = pet_adoption.fk_petid WHERE animals.id NOT IN(SELECT fk_petid FROM `pet_adoption`) ;";
 $result = mysqli_query($connect,$sql);
 $cards = "";
 

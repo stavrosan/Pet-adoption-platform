@@ -105,7 +105,7 @@ mysqli_close($connect);
 
 <div class="container">
 <h1 class="all text-center display-2">All animals</h1>
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
+<div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
     <?= $cards ?>
 </div>
 </div>
