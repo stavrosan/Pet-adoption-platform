@@ -1,8 +1,6 @@
 <?php
 
 
-//admin email:admin1@admin.com and pass:!1234
-//user  email:user1@user.com and pass:12345
 
 session_start();
 
@@ -41,7 +39,6 @@ echo "<script>
 }
 
 //First select all from animals and then join with pet_adoption table to get animal id that has no match with user(so we get only the ones that are not adopted yet) 
-//At first it worked but then it messed up the whole code. 
 $sql = "SELECT animals.*, pet_adoption.id as petId, pet_adoption.fk_userid, pet_adoption.fk_petid FROM `animals` LEFT JOIN `pet_adoption` ON animals.id = pet_adoption.fk_petid WHERE animals.id NOT IN(SELECT fk_petid FROM `pet_adoption`) ;";
 $result = mysqli_query($connect,$sql);
 $cards = "";

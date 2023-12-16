@@ -14,8 +14,8 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
         $row = mysqli_fetch_all($result, MYSQLI_ASSOC); 
            $detCards .= "
             <div class='p-2'>
-            <div class='card h-100'>
-            <img src=../assets/{$row[0]["picture"]} class='card-img-top object-fit-cover' style='height:20rem;' alt='animal_image'>
+            <div class='card h-100' style='width:50rem';>
+            <img src=../assets/{$row[0]["picture"]} class='card-img-top object-fit-cover background-center' style='height:40rem;' alt='animal_image'>
             <div class='card-body'>
               <h5 class='card-title'>Name: {$row[0]["name"]}</h5>
               <p class='card-text text-center'>Description: {$row[0]["description"]}</p>
@@ -23,7 +23,6 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
               <p class='card-text text-center'>Size: {$row[0]["size"]}</p>
               <p class='card-text text-center'>Age: {$row[0]["age"]}</p>
               <p class='card-text text-center'>Location: {$row[0]["location"]}</p>
-              <p class='card-text text-center'>Availability: {$row[0]["status"]}</p>
             </div>
           </div>
           </div>
@@ -51,7 +50,7 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
     
     <?php require_once '../components/navbar.php';?>
     
-    <div class="container">
+    <div class="containerDetails">
     
        <?= $detCards ?>
     

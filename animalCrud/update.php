@@ -97,7 +97,7 @@ if(isset($_POST["update"])){
 <?php require_once '../components/navbar.php';?>
 
 <div class="container">
-<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4 form2" style="width:60%; padding: 15px 35px 45px;">
+<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4 formCreateEdit" style="width:60%; padding: 15px 35px 45px;">
            <h3 class="text-center">Edit</h3>
            <div class="mb-3 mt-3">
                <label for="name" class= "form-label"></label>
