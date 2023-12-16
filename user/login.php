@@ -110,7 +110,6 @@ if(isset($_POST["login"])){
 <?php require_once '../components/navbar.php';?>
 
 <div class="container">
-<p class="text-center">Demo Admin <strong>email: admin1@admin.com and password: !1234</strong></p>
 <p class="text-center">Demo User  <strong>email: user1@user.com and password: 12345</strong></p>
 <h3 class="all text-center mt-3">Login Page</h3>
 <form action="" method="POST" class="mx-auto form" style="max-width:600px; padding: 15px 35px 45px;">
