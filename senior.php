@@ -1,11 +1,14 @@
 <?php
-    require_once 'components/connect.php';
 
-    $sql = "SELECT * FROM `animals` WHERE `age` >= 8";
-    $result = mysqli_query($connect, $sql);
-    $cards = "";
+session_start();
 
-    if(mysqli_num_rows($result) > 0){
+require_once 'components/connect.php';
+
+$sql = "SELECT * FROM `animals` WHERE `age` >= 8";
+$result = mysqli_query($connect, $sql);
+$cards = "";
+
+if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
             $vaccin = ($row['vaccinated'] == 1) ? 'Vaccinated' : 'Not vaccinated';//We define variable to convert boolean to a string
             
