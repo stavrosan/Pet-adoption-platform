@@ -1,7 +1,5 @@
 <?php
 
-
-
 session_start();
 
 require_once 'components/connect.php';

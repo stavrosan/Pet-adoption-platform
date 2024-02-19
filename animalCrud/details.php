@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once '../components/connect.php';
 
 //We connect the specific animal with it´s id

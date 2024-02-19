@@ -13,6 +13,7 @@ if(isset($_SESSION["user"]) || isset($_SESSION["adm"])){
 
 require_once '../components/connect.php';
 require_once '../components/clean.php';
+require_once '../components/navbar.php';
 
     
 
@@ -57,8 +58,8 @@ if(isset($_POST["login"])){
             if($row["status"] === "user"){
                 $_SESSION["user"] = $row["id"];
                 echo "
-            <div class='alert alert-light' role='alert'>
-                <h3 class='text-success'>Welcome user!</h3>
+            <div class='alert alert-secondary' role='alert'>
+                <h3 class='text-success text-center'>Welcome user!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -69,8 +70,8 @@ if(isset($_POST["login"])){
             elseif($row["status"] === "adm"){
                 $_SESSION["adm"] = $row["id"];
                 echo "
-            <div class='alert alert-light' role='alert'>
-                <h3 class='text-success'>Welcome admin!</h3>
+            <div class='alert alert-secondary' role='alert'>
+                <h3 class='text-success text-center'>Welcome admin!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -107,7 +108,7 @@ if(isset($_POST["login"])){
 </head>
 <body>
 
-<?php require_once '../components/navbar.php';?>
+
 
 <div class="container">
 <p class="text-center">Demo User  <strong>email: user1@user.com and password: 12345</strong></p>

@@ -25,7 +25,7 @@ body{
   border-radius: 10px;
   margin-bottom: 20px;
   background-color: rgb(169, 188, 208);
-  filter: drop-shadow(10px 10px 0 black);
+  /*filter: drop-shadow(10px 10px 0 black);*/
   border: 1px solid black;
 }
 

@@ -65,7 +65,7 @@ if($error === false){
 
     if($result){
         echo "
-        <div class='alert alert-success' role='alert'>
+        <div class='alert alert-success text-center' role='alert'>
             New user created!
         </div>
         ";
@@ -73,7 +73,7 @@ if($error === false){
         }
         else {
         echo "   
-        <div class='alert alert-danger' role='alert'>
+        <div class='alert alert-danger text-center' role='alert'>
              Error!
         </div>
        " ;
