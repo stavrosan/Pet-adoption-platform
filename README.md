@@ -10,4 +10,6 @@ This project was created with PHP and MySQL database
 * Responsive design
   
 
-![alt text](assets/adoptPet.gif)![alt text](assets/petsAdmin.png)![alt text](<assets/Screenshot 2024-02-21 151426.png>)
+* User overview ![alt text](assets/adoptPet.gif)
+* Admin panel ![alt text](assets/petsAdmin.png)
+* Create ![alt text](<assets/Screenshot 2024-02-21 151426.png>)
