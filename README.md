@@ -9,3 +9,5 @@ This project was created with PHP and MySQL database
 * Viewers only have access to home page and senior animals page
 * Responsive design
   
+
+![alt text](assets/adoptPet.gif)
