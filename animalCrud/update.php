@@ -48,7 +48,7 @@ if(isset($_POST["update"])){
     if(mysqli_query($connect,$sql)){
         echo "
         <div class='alert alert-success' role='alert'>
-            Animal info updated!
+         <h3 class='text-center'>Animal info updated!</h3>
         </div>
         ";
         echo "
@@ -97,37 +97,38 @@ if(isset($_POST["update"])){
 <?php require_once '../components/navbar.php';?>
 
 <div class="container">
-<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4 formCreateEdit" style="width:60%; padding: 15px 35px 45px;">
-           <h3 class="text-center">Edit</h3>
+<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4 formCreateEdit" style="width:70%; padding: 15px 35px 45px;">
+           <h2 class="text-center">Edit info about <?= $row["name"] ?></h2>
            <div class="mb-3 mt-3">
-               <label for="name" class= "form-label"></label>
-               <input  type="text" class="form-control" name="name" placeholder="Change name" value="<?= $row["name"] ?>">
+               <label for="name" class= "form-label">Change name:</label>
+               <input  type="text" class="form-control" name="name" value="<?= $row["name"] ?>">
             </div>
             <div class="mb-3">
-                <label for="picture" class="form-label"></label>
-                <input type ="file" class="form-control" name="picture" placeholder="Change photo" value="<?= $row["picture"] ?>">
+                <label for="picture" class="form-label">Change photo:</label>
+                <input type ="file" class="form-control" name="picture" value="<?= $row["picture"] ?>">
             </div>
             <div class="mb-3">
-                <label for="breed" class="form-label"></label>
-                <input type="text" class="form-control" name="breed" placeholder="Change breed"  value="<?= $row["breed"] ?>">
+                <label for="breed" class="form-label">Change breed:</label>
+                <input type="text" class="form-control" name="breed" value="<?= $row["breed"] ?>">
             </div>
             <div class="mb-3">
-                <label for="location" class="form-label"></label>
-                <input type="text" class="form-control" name="location" placeholder="Change location"  value="<?= $row["location"] ?>">
+                <label for="location" class="form-label">Change location:</label>
+                <input type="text" class="form-control" name="location" value="<?= $row["location"] ?>">
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label"></label>
-                <input type="text" class="form-control" name="description" placeholder="Change description"  value="<?= $row["description"] ?>">
+                <label for="description" class="form-label">Change description:</label>
+                <input type="text" class="form-control" name="description" value="<?= $row["description"] ?>">
             </div>
             <div class="mb-3">
-                <label for="size" class="form-label"></label>
-                <input type="text" class="form-control" name="size" placeholder="Change size"  value="<?= $row["size"] ?>">
+                <label for="size" class="form-label">Change size:</label>
+                <input type="text" class="form-control" name="size" value="<?= $row["size"] ?>">
             </div>
             <div class="mb-3">
-                <label for="age" class="form-label"></label>
-                <input type="number" class="form-control" name="age" placeholder="Change age"  value="<?= $row["age"] ?>">
+                <label for="age" class="form-label">Change age:</label>
+                <input type="number" class="form-control" name="age" value="<?= $row["age"] ?>">
             </div>
             <div class="mb-3">
+            <label for="vacc" class="form-label">Vaccinated:</label>
             <select name="vaccinated" class="form-control">
                 <option value="0">Choose</option>
                 <option value="1" <?= ($row['vaccinated'] == 1) ? 'selected' : '' ?>>Yes</option>

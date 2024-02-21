@@ -14,17 +14,17 @@ if(mysqli_num_rows($result) > 0){
             
             $cards .= "
                 <div class='p-2'>
-                <div class='card h-100'>
+                 <div class='card h-100'>
                     <img src='../assets/$row[picture]' class='card-img-top object-fit-cover' style='height:15rem' alt='animal_image'>
-                <div class='card-body'>
+                   <div class='card-body'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>Breed: $row[breed]</p>
                     <p class='card-text'>Age: $row[age]</p>
                     <p class='card-text'>Size: $row[size]</p>
                     <p class='card-text fst-italic text-decoration-underline'> $vaccin</p>
                     <p class='card-text'>Status: $row[status]</p>
-                </div>
-                </div>
+                  </div>
+                 </div>
                 </div>
             ";
         }

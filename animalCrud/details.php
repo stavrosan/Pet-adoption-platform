@@ -2,7 +2,9 @@
 
 session_start();
 
+
 require_once '../components/connect.php';
+
 
 //We connect the specific animal with it´s id
 
@@ -15,10 +17,10 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
     if($rows = mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_all($result, MYSQLI_ASSOC); 
            $detCards .= "
-            <div class='p-2'>
+          <div class='p-2'>
             <div class='card h-100' style='width:50rem';>
-            <img src=../assets/{$row[0]["picture"]} class='card-img-top object-fit-cover background-center' style='height:40rem;' alt='animal_image'>
-            <div class='card-body'>
+             <img src=../assets/{$row[0]["picture"]} class='card-img-top object-fit-cover background-center' style='height:40rem;' alt='animal_image'>
+             <div class='card-body'>
               <h5 class='card-title'>Name: {$row[0]["name"]}</h5>
               <p class='card-text text-center'>Description: {$row[0]["description"]}</p>
               <p class='card-text text-center'>Breed: {$row[0]["breed"]}</p>
@@ -26,7 +28,7 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
               <p class='card-text text-center'>Age: {$row[0]["age"]}</p>
               <p class='card-text text-center'>Location: {$row[0]["location"]}</p>
             </div>
-          </div>
+           </div>
           </div>
             ";
         
@@ -49,8 +51,10 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
         <link rel="stylesheet" href="../style.css">
     </head>
     <body>
-    
+
     <?php require_once '../components/navbar.php';?>
+    
+    
     
     <div class="containerDetails">
     

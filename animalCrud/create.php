@@ -27,7 +27,7 @@ if(isset($_POST["create"])){
     if(mysqli_query($connect,$sql)){
         echo "
         <div class='alert alert-light' role='alert'>
-        <h3 class='text-success'>New entry created!</h3>
+        <h3 class='text-success text-center'>New entry created!</h3>
         </div>
         ";
         echo "
@@ -72,8 +72,8 @@ if(isset($_POST["create"])){
 <?php require_once '../components/navbar.php';?>
 
 <div class="container">
-<form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4 formCreateEdit" style="width:60%; padding: 15px 35px 45px;">
-           <h3 class="text-center">Create</h3>
+        <form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4 formCreateEdit" style="width:60%; padding: 15px 35px 45px;">
+           <h2 class="text-center">Create new entry</h2>
            <div class="mb-3 mt-3">
                <label for="name" class= "form-label">Name:</label>
                <input  type="text" class="form-control" name="name">
@@ -104,7 +104,7 @@ if(isset($_POST["create"])){
             </div>
             <div class="mb-3">
             <button name="create" value="Create" type="submit" class="btn btn-primary">Create entry</button>
-            <a href="/home.php" class="btn btn-warning">Back to home page</a>
+            <a href="/home.php" class="btn btn-secondary">Back to home page</a>
             </div>
         </form>
 

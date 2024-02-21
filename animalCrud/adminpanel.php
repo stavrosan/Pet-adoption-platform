@@ -23,23 +23,23 @@ if($rows = mysqli_num_rows($result) > 0){
 
         $cards .= "
         <div class='col md-4 p-2'>
-        <div class='card h-100'>
-        <img src=../assets/$row[picture] class='card-img-top object-fit-cover' style='height:15rem' alt='animal_image'>
-        <div class='card-body'>
-          <h5 class='card-title'>Name: $row[name]</h5>
-          <p class='card-text'>Breed: $row[breed]</p>
-          <p class='card-text'>Age: $row[age]</p>
-          <p class='card-text'>Size: $row[size]</p>
-          <p class='card-text fst-italic'> $vaccin</p>
-          <p class='card-text'>Status: $row[status]</p>
+         <div class='card h-100'>
+         <img src=../assets/$row[picture] class='card-img-top object-fit-cover' style='height:15rem' alt='animal_image'>
+          <div class='card-body'>
+           <h5 class='card-title'>Name: $row[name]</h5>
+           <p class='card-text'>Breed: $row[breed]</p>
+           <p class='card-text'>Age: $row[age]</p>
+           <p class='card-text'>Size: $row[size]</p>
+           <p class='card-text fst-italic'> $vaccin</p>
+           <p class='card-text'>Status: $row[status]</p>
           <div class='mt-auto align-self-center'>
-          <a href='details.php?id=$row[id]' class='btn details'>Show details</a>
-          <a href='update.php?id=$row[id]' class='btn edit'>Edit</a>
-          <a href='delete.php?id=$row[id]' class='btn delete'>Delete</a>
+           <a href='details.php?id=$row[id]' class='btn details m-1'>Show details</a>
+           <a href='update.php?id=$row[id]' class='btn edit m-1'>Edit</a>
+           <a href='delete.php?id=$row[id]' class='btn delete m-1'>Delete</a>
+           </div>
+          </div>
+         </div>
         </div>
-      </div>
-      </div>
-      </div>
         ";
     }
 }
@@ -66,11 +66,11 @@ else {
     
     
     <div class="container">
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2">
+     <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
     
        <?= $cards ?>
 
-    </div>
+     </div>
     </div>
 
     <?php require_once '../components/footer.php';?>

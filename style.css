@@ -22,21 +22,15 @@ body{
 }
 
 .form{
-  border-radius: 10px;
   margin-bottom: 20px;
-  background-color: rgb(169, 188, 208);
-  /*filter: drop-shadow(10px 10px 0 black);*/
-  border: 1px solid black;
 }
 
 .formCreateEdit{
-  background-color:rgb(216, 219, 210);
   margin-bottom: 20px;
-
 }
 
 .navbar{
-background-color: rgb(170, 184, 175);
+background-color: rgba(147, 65, 65, 0.651);
 }
 
   .all{
@@ -51,7 +45,8 @@ background-color: rgb(170, 184, 175);
   }
 
   .card-title{
-    background-color: black;
+    background-color: rgba(147, 65, 65, 0.651);
+    padding: 3px;
     color: aliceblue;
     text-align: center;
     font-size: 2rem;
@@ -67,7 +62,8 @@ background-color: rgb(170, 184, 175);
 }
 
 .adopt{
-    background-color: rgb(214, 142, 142);
+    background-color: rgba(39, 38, 38, 0.509);
+    color: aliceblue;
     border: solid black;
     padding: 5px 3px;
     font-size: 1rem;

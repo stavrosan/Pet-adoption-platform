@@ -12,7 +12,7 @@ $sql = "INSERT INTO `pet_adoption` (`fk_userid`, `fk_petid`, `adoption_date`) VA
 if(mysqli_query($connect,$sql)){
 echo "
 <div class='alert alert-success' role='alert'>
-    Animal adopted!
+    <h3 class='text-center'>Animal adopted!</h3>
 </div>
 ";
 echo "<script>
@@ -47,9 +47,9 @@ if($rows = mysqli_num_rows($result) > 0){
 
         $cards .= "
         <div class='col md-4 p-2'>
-        <div class='card h-100'>
-        <img src=../assets/$row[picture] class='card-img-top object-fit-cover' style='height:15rem' alt='animal_image'>
-        <div class='card-body'>
+         <div class='card h-100'>
+          <img src=../assets/$row[picture] class='card-img-top object-fit-cover' style='height:15rem' alt='animal_image'>
+          <div class='card-body'>
           <h5 class='card-title'> $row[name]</h5>
           <p class='card-text'>Breed: $row[breed]</p>
           <p class='card-text'>Age: $row[age]</p>
@@ -66,9 +66,10 @@ if($rows = mysqli_num_rows($result) > 0){
             </form>
             "; 
         }
-        $cards.="</div>
-      </div>
-      </div>
+        $cards.="
+         </div>
+        </div>
+       </div>
       </div>
         ";
     }
@@ -99,10 +100,10 @@ mysqli_close($connect);
 
 
 <div class="container">
-<h1 class="all text-center display-2">All animals</h1>
-<div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
+ <h1 class="all text-center display-2">All animals</h1>
+ <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
     <?= $cards ?>
-</div>
+ </div>
 </div>
 
 <?php require_once 'components/footer.php';?>

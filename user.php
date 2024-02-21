@@ -17,8 +17,8 @@ if($rows = mysqli_num_rows($result) > 0){
 
         $cards .= "
         <div class='col md-4 p-2'>
-        <div class='card h-100'>
-        <div class='card-body'>
+         <div class='card h-100'>
+          <div class='card-body'>
           <h5 class='card-title'> $row[name]</h5>
           <p class='card-text text-center'>Breed: $row[breed]</p>
           <p class='card-text text-center'>Age: $row[age]</p>
@@ -27,9 +27,9 @@ if($rows = mysqli_num_rows($result) > 0){
           <div class='d-flex justify-content-end'>
           <a href='animalCrud/details.php?id=$row[id]' class='btn details mx-2'>Show details</a> ";
         $cards.="</div>
-      </div>
-      </div>
-      </div>
+         </div>
+        </div>
+       </div>
         ";
     }
 }

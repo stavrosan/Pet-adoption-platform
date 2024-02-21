@@ -58,8 +58,8 @@ if(isset($_POST["login"])){
             if($row["status"] === "user"){
                 $_SESSION["user"] = $row["id"];
                 echo "
-            <div class='alert alert-secondary' role='alert'>
-                <h3 class='text-success text-center'>Welcome user!</h3>
+            <div class='alert' role='alert'>
+                <h3 class='text-success text-center fw-bold'>Welcome user!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -70,8 +70,8 @@ if(isset($_POST["login"])){
             elseif($row["status"] === "adm"){
                 $_SESSION["adm"] = $row["id"];
                 echo "
-            <div class='alert alert-secondary' role='alert'>
-                <h3 class='text-success text-center'>Welcome admin!</h3>
+            <div class='alert' role='alert'>
+                <h3 class='text-success text-center fw-bold'>Welcome admin!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -83,7 +83,7 @@ if(isset($_POST["login"])){
         else{
             echo "
             <div class='alert alert-danger' role='alert'>
-                Something went wrong!
+            <h3 class='text-center>Something went wrong!</h3>
             </div>";
         }
     }
@@ -111,22 +111,19 @@ if(isset($_POST["login"])){
 
 
 <div class="container">
-<p class="text-center">Demo User  <strong>email: user1@user.com and password: 12345</strong></p>
-<h3 class="all text-center mt-3">Login Page</h3>
-<form action="" method="POST" class="mx-auto form" style="max-width:600px; padding: 15px 35px 45px;">
+ <h3 class="all text-center mt-3">Login Page</h3>
+        <form action="" method="POST" class="mx-auto form" style="max-width:700px; padding: 15px 35px 45px;">
            <div class="mb-3 mt-3">
-               <label class="form-label">Email:</label>
-               <input type="email" class="form-control" name="email" value="<?= $email??"";?>">
+               <input type="email" class="form-control" placeholder="email address" name="email" value="<?= $email??"";?>">
                <span><?= $emailError; ?></span>
             </div>
             <div class="mb-3 mt-3">
-                <label for="pass" class="form-label">Password:</label>
-                <input type="password" class="form-control"  name="pass">
+                <input type="password" class="form-control" placeholder="password" name="pass">
                 <span><?= $passError; ?></span>
             </div>
             <input type="submit" value="Login" class=" login" name="login">
         </form>
-
+        <p class="text-center m-4">Demo User  <strong>email: user1@user.com and password: 12345</strong></p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
