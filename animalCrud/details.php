@@ -4,6 +4,7 @@ session_start();
 
 
 require_once '../components/connect.php';
+require_once '../components/navbar.php';
 
 
 //We connect the specific animal with it´s id
@@ -52,7 +53,7 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
     </head>
     <body>
 
-    <?php require_once '../components/navbar.php';?>
+    
     
     
     
