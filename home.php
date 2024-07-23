@@ -43,7 +43,7 @@ $cards = "";
 
 if($rows = mysqli_num_rows($result) > 0){
     while ($row = mysqli_fetch_assoc($result)) {
-        $vaccin = ($row['vaccinated'] == 1) ? 'Vaccinated' : 'Not vaccinated';//We define variable to convert boolean to a string
+        $vaccin = ($row['vaccinated'] == 1) ? '<mark>Vaccinated</mark>' : 'Not vaccinated';//We define variable to convert boolean to a string
 
         $cards .= "
         <div class='col md-4 p-2'>
