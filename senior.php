@@ -22,7 +22,6 @@ if(mysqli_num_rows($result) > 0){
                     <p class='card-text'>Age: $row[age]</p>
                     <p class='card-text'>Size: $row[size]</p>
                     <p class='card-text fst-italic text-decoration-underline'> $vaccin</p>
-                    <p class='card-text'>Status: $row[status]</p>
                   </div>
                  </div>
                 </div>
