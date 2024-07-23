@@ -25,7 +25,7 @@ if($rows = mysqli_num_rows($result) > 0){
           <p class='card-text text-center'>Size: $row[size]</p>
           <p class='card-text text-center fst-italic text-decoration-underline'>$vaccin</p>
           <div class='d-flex justify-content-end'>
-          <a href='animalCrud/details.php?id=$row[id]' class='btn details mx-2'>Show details</a> ";
+           ";
         $cards.="</div>
          </div>
         </div>
