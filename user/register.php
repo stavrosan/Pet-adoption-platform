@@ -69,6 +69,11 @@ if($error === false){
             New user created!
         </div>
         ";
+        echo "<script>
+            setTimeout(function(){
+                window.location.href = 'login.php';
+            }, 2000); // Redirect after 2 seconds
+          </script>";
     
         }
         else {
@@ -78,12 +83,9 @@ if($error === false){
         </div>
        " ;
     }
-
     }
-
 }
 mysqli_close($connect);
-
 
 ?>
 
@@ -103,7 +105,7 @@ mysqli_close($connect);
 <?php require_once '../components/navbar.php';?>
 
 <div class="container">
-<h3 class="all text-center mx-auto mt-3">Register Form</h3>
+<h3 class="title text-center mx-auto mt-3">Register Form</h3>
 <form action="" method="POST" enctype= "multipart/form-data" class="mx-auto form" style="max-width:600px; padding: 15px 35px 45px;">
            <div class="mb-3 mt-3">
                <label for="fname" class= "form-label">First Name:</label>
