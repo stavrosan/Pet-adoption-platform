@@ -46,10 +46,10 @@ echo "
    if(isset($_SESSION["user"])) {
     echo "
    <li class='nav-item'>
-   <img src='assets/{$userImage}' style='height:40px; border-radius:10px;' alt='user-avatar'>
+   <img src='assets/{$userImage}' style='height:45px; border-radius:10px;' alt='user-avatar'>
    </li>
    <li class='nav-item'>
-   <a class= 'nav-link text-white fw-bold' href='#'>Hello, {$userName}</a>
+   <a class= 'nav-link text-white fw-bold' href='#'>User: {$userName}</a>
    </li>
    <li class='nav-item'>
    <a class= 'nav-link fw-bold' href='/user.php'>User details</a>
