@@ -31,6 +31,7 @@ if(isset($_POST["update"])){
     $size = $_POST["size"];
     $age = $_POST["age"];
     $vaccinated = $_POST['vaccinated'] !=0 ? $_POST['vaccinated'] : 1;
+    $status = $_POST['status'];
     
     
     if($_FILES["picture"]["error"] == 0){
@@ -38,10 +39,10 @@ if(isset($_POST["update"])){
         if($row["picture"] != "animal.jpg"){
             unlink("../assets/$row[picture]");
         }
-        $sql = "UPDATE `animals` SET `name`='$name',`picture`='$picture[0]',`breed`='$breed', `location`= '$location', `description`= '$description', `size`= '$size', `age`= '$age', `vaccinated`= '$vaccinated' WHERE `id` = $_GET[id] ";
+        $sql = "UPDATE `animals` SET `name`='$name',`picture`='$picture[0]',`breed`='$breed', `location`= '$location', `description`= '$description', `size`= '$size', `age`= '$age', `vaccinated`= '$vaccinated', `status`= '$status' WHERE `id` = $_GET[id] ";
     }
     else {
-        $sql = "UPDATE `animals` SET `name`='$name', `breed`='$breed', `location`= '$location', `description`= '$description', `size`= '$size', `age`= '$age', `vaccinated`= '$vaccinated' WHERE `id` = $_GET[id] ";
+        $sql = "UPDATE `animals` SET `name`='$name', `breed`='$breed', `location`= '$location', `description`= '$description', `size`= '$size', `age`= '$age', `vaccinated`= '$vaccinated', `status`= '$status' WHERE `id` = $_GET[id] ";
     }
     
     
@@ -54,7 +55,7 @@ if(isset($_POST["update"])){
         echo "
         <script>
         setTimeout(function(){
-        window.location.href = '/home.php';
+        window.location.href = 'adminpanel.php';
         }, 2000); // Redirect after 2 seconds
         </script>";
     
@@ -68,17 +69,13 @@ if(isset($_POST["update"])){
        echo "
         <script>
          setTimeout(function(){
-         window.location.href = '/home.php';
+         window.location.href = 'adminpanel.php';
         }, 2000); // Redirect after 2 seconds
         </script>";
     }
     }
     
     mysqli_close($connect);
-
-
-
-
 
 ?>
 
@@ -98,6 +95,7 @@ if(isset($_POST["update"])){
 
 <div class="container">
 <form action="" method="POST" enctype= "multipart/form-data" class="mx-auto mt-4 formCreateEdit" style="width:70%; padding: 15px 35px 45px;">
+           <img src=../assets/<?=$row["picture"]?> class='d-block object-fit-contain rounded m-auto' style='width:10rem' alt='animal_image'>
            <h2 class="text-center">Edit info about <?= $row["name"] ?></h2>
            <div class="mb-3 mt-3">
                <label for="name" class= "form-label">Change name:</label>
@@ -130,13 +128,21 @@ if(isset($_POST["update"])){
             <div class="mb-3">
             <label for="vacc" class="form-label">Vaccinated:</label>
             <select name="vaccinated" class="form-control">
-                <option value="0">Choose</option>
                 <option value="1" <?= ($row['vaccinated'] == 1) ? 'selected' : '' ?>>Yes</option>
-                <option value="2" <?= ($row['vaccinated'] == 2) ? 'selected' : '' ?>>No</option>
+                <option value="0" <?= ($row['vaccinated'] == 0) ? 'selected' : '' ?>>No</option>
+            </select>
+            </div>
+            <div class="mb-3">
+            <label for="status" class="form-label">Status:</label>
+            <select name="status" class="form-control">
+                <option value="0">Choose</option>
+                <option <?= $row['status'] == "Available" ? "selected" : "" ?> value="Available">Available</option>
+                <option <?= $row['status'] == "Adopted" ? "selected" : "" ?> value="Adopted">Adopted</option>
             </select>
             </div>
             <div class="mb-3">
             <button name="update" value="Update" type="submit" class="btn btn-warning">Update</button>
+            <a href="/home.php" class="btn btn-secondary">Back to home page</a>
             </div>
         </form>
 
