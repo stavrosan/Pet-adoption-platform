@@ -19,7 +19,7 @@ $userImage = $row["picture"];
 echo "
 <nav class='navbar navbar-expand-lg'>
   <div class='container-fluid'>
-    <a class='navbar-brand' href='/home.php'><img src='https://cdn.pixabay.com/photo/2022/08/10/03/30/cat-7376274_640.png' style='height:60px; border-radius:10px;' alt='logo'></a>
+    <a class='navbar-brand' href='/home.php'><img src='https://cdn.pixabay.com/photo/2016/03/31/20/41/friends-1295970_640.png' style='height:80px; width:80px; border-radius:10px;' alt='logo'></a>
     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
     </button>
