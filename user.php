@@ -19,11 +19,12 @@ if($rows = mysqli_num_rows($result) > 0){
         <div class='col md-4 p-2'>
          <div class='card h-100'>
           <div class='card-body'>
-          <h5 class='card-title'> $row[name]</h5>
+          <h5 class='card-title title'> $row[name]</h5>
           <p class='card-text text-center'>Breed: $row[breed]</p>
           <p class='card-text text-center'>Age: $row[age]</p>
           <p class='card-text text-center'>Size: $row[size]</p>
           <p class='card-text text-center fst-italic text-decoration-underline'>$vaccin</p>
+          <p class='card-text text-center'>Adoption date: $row[adoption_date]</p>
           <div class='d-flex justify-content-end'> 
           ";
         $cards.="</div>
@@ -38,8 +39,6 @@ else {
 };
 
 mysqli_close($connect);
-
-
 
 ?>
 
@@ -59,7 +58,7 @@ mysqli_close($connect);
 
 
 <div class="container">
-<h1 class="all text-center display-2">Your adoptions</h1>
+<h1 class="title text-center display-2 m-4">Your adoptions</h1>
 
 <div class="row row-cols-1 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-xs-1">
 
