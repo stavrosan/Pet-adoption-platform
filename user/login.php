@@ -54,7 +54,7 @@ if(isset($_POST["login"])){
                 $_SESSION["user"] = $row["id"];
                 echo "
             <div class='alert' role='alert'>
-                <h3 class='text-uppercase text-center fw-bold'>Welcome {$row["first_name"]}!</h3>
+                <h3 class='text-success-emphasis text-uppercase text-center fw-bold'>Welcome {$row["first_name"]} {$row["last_name"]}!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -66,7 +66,7 @@ if(isset($_POST["login"])){
                 $_SESSION["adm"] = $row["id"];
                 echo "
             <div class='alert' role='alert'>
-                <h3 class='text-uppercase text-center fw-bold'>Welcome admin!</h3>
+                <h3 class='text-success-emphasis text-uppercase text-center fw-bold'>Welcome admin!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -77,8 +77,9 @@ if(isset($_POST["login"])){
         }
         else{
             echo "
-            <div class='alert alert-danger' role='alert'>
-            <h3 class='text-center>Something went wrong!</h3>
+            <div class='alert' role='alert'>
+                <h5 class='m-2 text-danger text-uppercase text-center fw-bold'>Incorrect email address or password!</h5>
+                <h5 class='text-center'>Please try again</h5>
             </div>";
         }
     }
