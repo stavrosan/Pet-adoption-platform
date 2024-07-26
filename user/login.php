@@ -27,7 +27,6 @@ if(isset($_POST["login"])){
     if(empty($email)){
         $error = true;
         $emailError = "Enter email";
-    
     }
     
     elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -38,7 +37,6 @@ if(isset($_POST["login"])){
     if(empty($pass)){
         $error = true;
         $passError = "Enter password";
-    
     }
 
     if(!$error){
@@ -83,8 +81,6 @@ if(isset($_POST["login"])){
             </div>";
         }
     }
-    
-    
     }
 
     mysqli_close($connect);
@@ -107,7 +103,7 @@ if(isset($_POST["login"])){
 
 
 <div class="container">
- <h3 class="all text-center mt-3">Login Page</h3>
+ <h3 class="title text-center mt-3">Login Page</h3>
         <form action="" method="POST" class="mx-auto form" style="max-width:700px; padding: 15px 35px 45px;">
            <div class="mb-3 mt-3">
                <input type="email" class="form-control" placeholder="email address" name="email" value="<?= $email??"";?>">
