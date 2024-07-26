@@ -8,8 +8,9 @@ if(isset($_SESSION["user"]) && isset($_POST["adopt"])){
 $date = date("Y-m-d h:i:sa"); //H:i:s
 
 //We insert in pet_adoption table userid, petid and date if the session is user and post from the form has the name adopt
-$sql = "INSERT INTO `pet_adoption` (`fk_userid`, `fk_petid`, `adoption_date`) VALUES ($_SESSION[user], $_POST[animal], '$date')";
-if(mysqli_query($connect,$sql)){
+$sqlInsert = "INSERT INTO `pet_adoption` (`fk_userid`, `fk_petid`, `adoption_date`) VALUES ($_SESSION[user], $_POST[animal], '$date')";
+$sqlUpdate = "UPDATE `animals` SET `status`='Adopted' WHERE `id` = $_POST[animal]";
+if(mysqli_query($connect, $sqlInsert) && mysqli_query($connect, $sqlUpdate)){
 echo "
 <div class='alert alert-success' role='alert'>
     <h3 class='text-center'>Animal adopted!</h3>
@@ -37,7 +38,9 @@ echo "<script>
 }
 
 //First select all from animals and then join with pet_adoption table to get animal id that has no match with user(so we get only the ones that are not adopted yet) 
-$sql = "SELECT animals.*, pet_adoption.id as petId, pet_adoption.fk_userid, pet_adoption.fk_petid FROM `animals` LEFT JOIN `pet_adoption` ON animals.id = pet_adoption.fk_petid WHERE animals.id NOT IN(SELECT fk_petid FROM `pet_adoption`) ;";
+// $sql = "SELECT animals.*, pet_adoption.id as petId, pet_adoption.fk_userid, pet_adoption.fk_petid FROM `animals` 
+// LEFT JOIN `pet_adoption` ON animals.id = pet_adoption.fk_petid WHERE animals.id NOT IN(SELECT fk_petid FROM `pet_adoption`) ;";
+$sql = "SELECT * FROM `animals` WHERE 1";
 $result = mysqli_query($connect,$sql);
 $cards = "";
 
@@ -50,7 +53,7 @@ if($rows = mysqli_num_rows($result) > 0){
          <div class='card h-100'>
           <img src=../assets/$row[picture] class='card-img-top object-fit-cover' style='height:15rem' alt='animal_image'>
           <div class='card-body'>
-          <h5 class='card-title'> $row[name]</h5>
+          <h5 class='card-title title'> $row[name]</h5>
           <p class='card-text'>Breed: $row[breed]</p>
           <p class='card-text'>Age: $row[age]</p>
           <p class='card-text'>Size: $row[size]</p>
@@ -100,7 +103,7 @@ mysqli_close($connect);
 
 
 <div class="container">
- <h1 class="all text-center display-2">All animals</h1>
+ <h1 class="title text-center display-2 m-4">All animals</h1>
  <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
     <?= $cards ?>
  </div>
