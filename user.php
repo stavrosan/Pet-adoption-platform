@@ -24,8 +24,8 @@ if($rows = mysqli_num_rows($result) > 0){
           <p class='card-text text-center'>Age: $row[age]</p>
           <p class='card-text text-center'>Size: $row[size]</p>
           <p class='card-text text-center fst-italic text-decoration-underline'>$vaccin</p>
-          <div class='d-flex justify-content-end'>
-           ";
+          <div class='d-flex justify-content-end'> 
+          ";
         $cards.="</div>
          </div>
         </div>

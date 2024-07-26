@@ -15,13 +15,8 @@ require_once '../components/connect.php';
 require_once '../components/clean.php';
 require_once '../components/navbar.php';
 
-    
-
-
-
 $emailError = "";
 $passError = "";
-
 
 if(isset($_POST["login"])){
 
@@ -59,7 +54,7 @@ if(isset($_POST["login"])){
                 $_SESSION["user"] = $row["id"];
                 echo "
             <div class='alert' role='alert'>
-                <h3 class='text-success text-center fw-bold'>Welcome user!</h3>
+                <h3 class='text-uppercase text-center fw-bold'>Welcome {$row["first_name"]}!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
@@ -71,7 +66,7 @@ if(isset($_POST["login"])){
                 $_SESSION["adm"] = $row["id"];
                 echo "
             <div class='alert' role='alert'>
-                <h3 class='text-success text-center fw-bold'>Welcome admin!</h3>
+                <h3 class='text-uppercase text-center fw-bold'>Welcome admin!</h3>
             </div>";
             echo "<script>
             setTimeout(function(){
