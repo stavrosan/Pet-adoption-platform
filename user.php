@@ -35,7 +35,7 @@ if($rows = mysqli_num_rows($result) > 0){
     }
 }
 else {
-    $cards = "<h2 class='text-danger'>No data</h2>";
+    $cards = "<h2 class='text-danger'>No adoptions in your cart</h2>";
 };
 
 mysqli_close($connect);
