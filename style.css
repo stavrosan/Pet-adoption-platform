@@ -49,6 +49,14 @@ background-color: rgba(147, 65, 65, 0.651);
   margin-top: 10px;
 }
 
+.title span{
+  background-clip: content-box;
+  background: linear-gradient(to bottom, 
+  rgba(147, 65, 65, 0.651), rgba(218, 168, 115, 0.651)); 
+            -webkit-text-fill-color:transparent; 
+            -webkit-background-clip: text;
+}
+
 .card{
   border: 1px solid black;
 }
