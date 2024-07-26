@@ -37,9 +37,6 @@ echo "<script>
 }
 }
 
-//First select all from animals and then join with pet_adoption table to get animal id that has no match with user(so we get only the ones that are not adopted yet) 
-// $sql = "SELECT animals.*, pet_adoption.id as petId, pet_adoption.fk_userid, pet_adoption.fk_petid FROM `animals` 
-// LEFT JOIN `pet_adoption` ON animals.id = pet_adoption.fk_petid WHERE animals.id NOT IN(SELECT fk_petid FROM `pet_adoption`) ;";
 $sql = "SELECT * FROM `animals` WHERE 1";
 $result = mysqli_query($connect,$sql);
 $cards = "";
