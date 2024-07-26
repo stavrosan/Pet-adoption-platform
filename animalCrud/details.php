@@ -18,9 +18,9 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
     if($rows = mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_all($result, MYSQLI_ASSOC); 
            $detCards .= "
-          <div class='p-2'>
-            <div class='card h-100' style='width:50rem';>
-             <img src=../assets/{$row[0]["picture"]} class='card-img-top object-fit-cover background-center' style='height:40rem;' alt='animal_image'>
+          <div class='p-2 m-4'>
+            <div class='card h-100' style='width:30rem';>
+             <img src=../assets/{$row[0]["picture"]} class='card-img-top object-fit-cover background-center' style='height:15rem;' alt='animal_image'>
              <div class='card-body'>
               <h5 class='card-title'>Name: {$row[0]["name"]}</h5>
               <p class='card-text text-center'>Description: {$row[0]["description"]}</p>
@@ -52,21 +52,12 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
         <link rel="stylesheet" href="../style.css">
     </head>
     <body>
-
-    
-    
-    
     
     <div class="containerDetails">
     
        <?= $detCards ?>
     
     </div>
-    
-    
-    
-    
-    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
