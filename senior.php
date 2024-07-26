@@ -10,14 +10,14 @@ $cards = "";
 
 if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
-            $vaccin = ($row['vaccinated'] == 1) ? 'Vaccinated' : 'Not vaccinated';//We define variable to convert boolean to a string
+            $vaccin = ($row['vaccinated'] == 1) ? '<mark>Vaccinated</mark>' : 'Not vaccinated';//Define variable to convert boolean to a string
             
             $cards .= "
                 <div class='p-2'>
                  <div class='card h-100'>
                     <img src='../assets/$row[picture]' class='card-img-top object-fit-cover' style='height:15rem' alt='animal_image'>
                    <div class='card-body'>
-                    <h5 class='card-title'>$row[name]</h5>
+                    <h5 class='card-title title'>$row[name]</h5>
                     <p class='card-text'>Breed: $row[breed]</p>
                     <p class='card-text'>Age: $row[age]</p>
                     <p class='card-text'>Size: $row[size]</p>
@@ -48,7 +48,7 @@ if(mysqli_num_rows($result) > 0){
 
 
 <div class="container">
-<h1 class="all text-center display-2">Senior animals</h1>
+<h1 class="title text-center display-2 my-4">Senior animals</h1>
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2">
     <?= $cards ?>
 </div>
