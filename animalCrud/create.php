@@ -20,9 +20,12 @@ if(isset($_POST["create"])){
     $description = $_POST["description"];
     $size = $_POST["size"];
     $age = $_POST["age"];
+    $vaccinated = $_POST["vaccinated"];
+    $status = $_POST["status"];
     
 
-    $sql = "INSERT INTO `animals`( `name`, `picture`, `breed`, `location`, `description`, `size`, `age`) VALUES ('$name','$picture[0]','$breed','$location','$description','$size','$age')";
+    $sql = "INSERT INTO `animals`( `name`, `picture`, `breed`, `location`, `description`, `size`, `age`, `vaccinated`, `status`) 
+    VALUES ('$name','$picture[0]','$breed','$location','$description','$size','$age', '$vaccinated', '$status')";
 
     if(mysqli_query($connect,$sql)){
         echo "
@@ -101,6 +104,21 @@ if(isset($_POST["create"])){
             <div class="mb-3">
                 <label for="age" class="form-label">Age:</label>
                 <input type="number" class="form-control" name="age">
+            </div>
+            <div class="mb-3">
+            <label for="vaccinated" class="form-label">Vaccinated:</label>
+            <select name="vaccinated" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            </div>
+            <div class="mb-3">
+            <label for="status" class="form-label">Status:</label>
+            <select name="status" class="form-control">
+                <option value="0">Choose</option>
+                <option value="Available">Available</option>
+                <option value="Adopted">Adopted</option>
+            </select>
             </div>
             <div class="mb-3">
             <button name="create" value="Create" type="submit" class="btn btn-primary">Create entry</button>
