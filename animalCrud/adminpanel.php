@@ -12,14 +12,16 @@ if(isset($_SESSION["user"])){//if it is a user it redirects to main page
 
 require_once '../components/connect.php';
 
-$sql = "SELECT animals.*, pet_adoption.id as petId, pet_adoption.fk_userid, pet_adoption.fk_petid FROM `animals` LEFT JOIN `pet_adoption` ON animals.id = pet_adoption.fk_petid WHERE animals.id NOT IN(SELECT fk_petid FROM `pet_adoption`) ;";
+// $sql = "SELECT animals.*, pet_adoption.id as petId, pet_adoption.fk_userid, pet_adoption.fk_petid 
+// FROM `animals` LEFT JOIN `pet_adoption` ON animals.id = pet_adoption.fk_petid WHERE animals.id NOT IN(SELECT fk_petid FROM `pet_adoption`) ;";
+$sql = "SELECT * FROM `animals` WHERE 1 ";
 $result = mysqli_query($connect,$sql);
 $cards = "";
 
 if($rows = mysqli_num_rows($result) > 0){
     while ($row = mysqli_fetch_assoc($result)) {
 
-        $vaccin = ($row['vaccinated'] == 1) ? 'Vaccinated' : 'Not vaccinated';//We define variable to convert boolean to a string
+        $vaccin = ($row['vaccinated'] == 1) ? '<mark>Vaccinated</mark>' : 'Not vaccinated';//Define variable to convert boolean to a string
 
         $cards .= "
         <div class='col md-4 p-2'>
@@ -65,7 +67,7 @@ else {
     <?php require_once '../components/navbar.php';?>
     
     
-    <div class="container">
+    <div class="container my-4">
      <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
     
        <?= $cards ?>
