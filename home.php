@@ -80,8 +80,6 @@ else {
 
 mysqli_close($connect);
 
-
-
 ?>
 
 
@@ -98,9 +96,11 @@ mysqli_close($connect);
 
 <?php require_once 'components/navbar.php';?>
 
-
 <div class="container">
- <h1 class="title text-center display-2 m-4">All animals</h1>
+ <h1 class="title text-center display-2 mt-4">Welcome to <span>PetPals </span> Adoption!</h1>
+    <h4 class="text-center mb-5">
+        At PetPals Adoption, our mission is to connect loving families with wonderful pets in need of a home!
+    </h4>
  <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
     <?= $cards ?>
  </div>
