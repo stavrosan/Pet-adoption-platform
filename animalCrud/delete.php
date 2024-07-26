@@ -32,12 +32,37 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
     $sql = "DELETE FROM `animals` WHERE `id` = $id";
     mysqli_query($connect,$sql);
 
-    mysqli_close($connect);
-    header("Location: /home.php");
+    if(mysqli_query($connect,$sql)){
+        echo "
+        <div class='alert alert-success' role='alert'>
+         <h3 class='text-center'>Animal deleted!</h3>
+        </div>
+        ";
+        echo "
+        <script>
+        setTimeout(function(){
+        window.location.href = 'adminpanel.php';
+        }, 2000); // Redirect after 2 seconds
+        </script>";
+    
+        }
+        else {
+        echo "   
+        <div class='alert alert-danger' role='alert'>
+             Error!
+        </div>
+       " ;
+       echo "
+        <script>
+         setTimeout(function(){
+         window.location.href = 'adminpanel.php';
+        }, 2000); // Redirect after 2 seconds
+        </script>";
+    }
    }
    else{
 
    mysqli_close($connect);
-   header("Location: /home.php");
+   header("Location: adminpanel.php");
    }
 
